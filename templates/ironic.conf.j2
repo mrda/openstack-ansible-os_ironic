@@ -46,7 +46,7 @@ dhcp_provider = {{ ironic_dhcp_provider }}
 [disk_utils]
 
 [glance]
-glance_api_servers = {{ glance_api_servers }}
+glance_api_servers = "{{ glance_service_proto }}://{{ external_lv_vip_address }}:{{ glance_service_port }}"
 {% if not ironic_standalone | bool %}
 swift_temp_url_key = {{ ironic_swift_temp_url_secret_key }}
 swift_container = {{ ironic_swift_image_container }}
